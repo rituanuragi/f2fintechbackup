@@ -1,0 +1,17 @@
+<!-- Replace with your actual web content URL. This is for testing env. For production use https://evlplugin.evolutosolution.com -->
+<iframe id="myIframe" src='https://evlplugin.evolutosolution.com' width="100%" height="700px" frameborder="0"></iframe>
+<script>
+    window.onload = function () {
+        const iframe = document.getElementById('myIframe');
+        const dataToSend = {
+            apiKey: "6c39d7a71c6562158cd7f7f8fecfd5eafaffc9f4b774cbbc0e3d3978f1b2f19a", //this will be provided by us
+            apiSecret: "odgdDHZQFts1kzEx1GC0TdvUeQwnpHr3HLNUYUdwVZqCBiJ4P7dvRhEbuT1SSSq6N7Y7PpTJ6/tw6n/tH7HQsemJ7ZxkCnRCgdIN+kRniXBAwYJxOeTePch5HmPaGN4g2/IdMF8gjNGqTcgMVUmSSVdzVvU/ub5RnI9ocWD2HHEi324FxbLorBZXwPIeq8T2", //Same you will get from US
+            refCode: "OUI202390410",
+            bundlePath: "https://f2fintech.com/wp-content/uploads/dsabharat/index.html", // path to bundle from assets file
+            source: "web", // web
+            serverIp: "162.144.83.73", // Ip Address of your server
+            plugin_accessibility: "Eliza", // 'Eliza' for All, 'Bingley' for Form, 'Darcy' for Grid
+        };
+        iframe.contentWindow.postMessage(dataToSend, 'https://evlplugin.evolutosolution.com'); // Replace with your actual web content URL. This is for testing env. For production use https://evlplugin.evolutosolution.com
+    }
+</script>
