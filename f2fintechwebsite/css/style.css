@@ -61,7 +61,7 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 30px;
-    color: #2c3ce3;
+    color: #dcdce2;
     background-color: white;
     padding-top: 0px;
     padding-right: 10px;
@@ -87,7 +87,7 @@
   .text-blk.subHeadingText {
     font-size: 22px;
     line-height: 1.5;
-    color: #2c3ce3; /* Blue color */
+    color: #77778a; /* Blue color */
     background-color: white;
     font-weight: bold;
     text-align: center;
@@ -907,6 +907,22 @@ p a {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Larger shadow on hover */
 }
 
+.carousel-inner {
+  margin-bottom: -36px; /* Adjust as needed */
+}
+
+/* Adjust margin-bottom for desktop view */
+@media (min-width: 768px) {
+  .carousel-inner {
+      margin-bottom: -10px; /* Adjust as needed */
+  }
+}
+/* Increase video size for tablet screens */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .video-container video {
+      height: 120vh; /* Adjust as needed */
+  }
+}
 .video-container {
     position: relative;
     overflow: hidden;
@@ -1810,7 +1826,7 @@ h2::after {
 
 .img-client-crousel {
     width: 120px;
-    height: 60px;
+    height: 80px;
     animation: scroll 10s linear infinite;
   }
 .slide-track {

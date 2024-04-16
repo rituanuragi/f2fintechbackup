@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor CIBIL Check</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="App">
+    <h1>Doctor CIBIL Check</h1>
+    <form id="cibilForm">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+      </div>
+      <div>
+        <label for="mobile">Mobile No:</label>
+        <input type="text" id="mobile" name="mobile">
+      </div>
+      <div>
+        <label for="document_id">PAN Card No:</label>
+        <input type="text" id="document_id" name="document_id">
+      </div>
+      
+      <button type="submit" id="checkCibilBtn">Check CIBIL</button>
+     
+    </form>
+    <div id="resultContainer"></div>
+    <p id="errorContainer"></p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const cibilForm = document.getElementById("cibilForm");
+      const resultContainer = document.getElementById("resultContainer");
+      const errorContainer = document.getElementById("errorContainer");
+
+      cibilForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        
+        const formData = {
+          name: document.getElementById("name").value,
+          mobile: document.getElementById("mobile").value,
+          document_id: document.getElementById("document_id").value
+        };
+
+        try {
+          const response = await fetch('http://localhost:3000/check-doctor-cibil', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+          const data = await response.json();
+
+          resultContainer.innerHTML = `
+            <div>
+              <h2>Result</h2>
+              <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                <code style="color: green;">
+                  ${JSON.stringify(data, null, 2)}
+                </code>
+              </pre>
+            </div>
+          `;
+          errorContainer.textContent = '';
+        } catch (error) {
+          console.error('Error:', error);
+          resultContainer.innerHTML = '';
+          errorContainer.textContent = 'Error checking CIBIL. Please try again later.';
+        }
+      });
+
+      
+    });
+  </script>
+</body>
+</html>
